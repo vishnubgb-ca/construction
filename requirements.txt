@@ -1,4 +1,4 @@
-python-opencv
+opencv-python
 boto3
 torch
 numpy
