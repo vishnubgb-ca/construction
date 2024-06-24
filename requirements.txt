@@ -1,0 +1,8 @@
+python-opencv
+boto3
+torch
+numpy
+albumentations
+torchvision
+dill
+pillow
