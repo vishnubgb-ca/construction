@@ -69,8 +69,8 @@ def transform_data():
 
     class CustomDataset(Dataset):
         def __init__(
-            self, images_path, labels_path, labels_txt,
-            width, height, classes, directory, transforms=None, 
+            self, images_path, labels_path, labels_txt,directory,
+            width, height, classes, transforms=None, 
             use_train_aug=False,
             train=False, mosaic=False
         ):
