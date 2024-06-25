@@ -70,13 +70,14 @@ def transform_data():
     class CustomDataset(Dataset):
         def __init__(
             self, images_path, labels_path, labels_txt,
-            width, height, classes, transforms=None, 
+            width, height, classes, directory, transforms=None, 
             use_train_aug=False,
             train=False, mosaic=False
         ):
             self.transforms = transforms
             self.use_train_aug = use_train_aug
             self.images_path = images_path
+            self.directory = directory
             self.labels_path = labels_path
             self.labels_txt = labels_txt
             self.height = height
@@ -296,9 +297,9 @@ def transform_data():
     IMAGE_HEIGHT = 680
     classes = ['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone', 'Safety Vest', 'machinery', 'vehicle']
     # Create datasets
-    train_dataset = CustomDataset(os.path.join(os.getcwd(),"css-data/train/images"),os.path.join(os.getcwd(),"css-data/train/annotations/"), os.path.join(os.getcwd(),"css-data/train/labels/"), IMAGE_WIDTH, IMAGE_HEIGHT, classes, get_train_transform())
+    train_dataset = CustomDataset(os.path.join(os.getcwd(),"css-data/train/images"),os.path.join(os.getcwd(),"css-data/train/annotations/"), os.path.join(os.getcwd(),"css-data/train/labels/"), "css-data", IMAGE_WIDTH, IMAGE_HEIGHT, classes, get_train_transform())
     print("one-------------",train_dataset)
-    valid_dataset = CustomDataset(os.path.join(os.getcwd(),"css-data/valid/images"),os.path.join(os.getcwd(),"css-data/valid/annotations/"), os.path.join(os.getcwd(),"css-data/valid/labels/"),IMAGE_WIDTH, IMAGE_HEIGHT, classes, get_valid_transform())
+    valid_dataset = CustomDataset(os.path.join(os.getcwd(),"css-data/valid/images"),os.path.join(os.getcwd(),"css-data/valid/annotations/"), os.path.join(os.getcwd(),"css-data/valid/labels/"),"css-data", IMAGE_WIDTH, IMAGE_HEIGHT, classes, get_valid_transform())
     print("-------------",valid_dataset)
     i, a = train_dataset[0]
     print("iiiiii:",i)
