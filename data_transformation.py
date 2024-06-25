@@ -36,10 +36,10 @@ def transform_data():
             #     (0.229, 0.224, 0.225)
             # ),
             ToTensorV2(p=1.0),
-        ], bbox_params={
-            'format': 'pascal_voc',
-            'label_fields': ['labels']
-        })
+        ], bbox_params=A.BboxParams(
+            format='pascal_voc',
+            label_fields=['labels']
+        ))
 
     def get_train_transform():
         return A.Compose([
@@ -48,10 +48,10 @@ def transform_data():
             #     (0.229, 0.224, 0.225)
             # ),
             ToTensorV2(p=1.0),
-        ], bbox_params={
-            'format': 'pascal_voc',
-            'label_fields': ['labels']
-        })
+        ], bbox_params=A.BboxParams(
+            format='pascal_voc',
+            label_fields=['labels']
+        ))
 
     # Define the validation transforms
     def get_valid_transform():
@@ -61,10 +61,10 @@ def transform_data():
             #     (0.229, 0.224, 0.225)
             # ),
             ToTensorV2(p=1.0),
-        ], bbox_params={
-            'format': 'pascal_voc', 
-            'label_fields': ['labels']
-        })
+        ], bbox_params=A.BboxParams(
+            format='pascal_voc',
+            label_fields=['labels']
+        ))
 
 
     class CustomDataset(Dataset):
