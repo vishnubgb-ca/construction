@@ -1,8 +1,9 @@
-opencv-python
-boto3
-torch
-numpy
 albumentations
-torchvision
+boto3
 dill
-pillow
+numpy
+opencv_python_headless
+Pillow
+Requests
+torch
+torchvision
